@@ -1,0 +1,102 @@
+[project]
+name = "hybrid-rag"
+version = "0.1.0"
+description = "Portfolio-grade RAG assistant over agentic-AI docs (MCP, A2A, LangGraph)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Core
+    "pydantic>=2.5",
+    "pydantic-settings>=2.1",
+    "python-dotenv>=1.0",
+    "httpx>=0.26",
+    "tenacity>=8.2",
+    "rich>=13.7",
+    "click>=8.1",
+    "pyyaml>=6.0",
+    "orjson>=3.9",
+    "tiktoken>=0.7",
+
+    # ML/Embeddings
+    "sentence-transformers>=2.5",
+    "transformers>=4.38",
+    "torch>=2.2",
+
+    # Vector DB
+    "qdrant-client>=1.10",
+
+    # LLM
+    "groq>=0.5",
+    "openai>=1.10",
+
+    # Evaluation
+    "ragas>=0.1",
+    "deepeval>=1.0",
+
+    # Utils
+    "structlog>=24.1",
+    "python-json-logger>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=4.1",
+    "pytest-mock>=3.12",
+    "httpx>=0.26",
+    "faker>=20.0.0",
+    "ruff>=0.1",
+    "black>=23.0",
+    "mypy>=1.7",
+    "bandit>=1.7",
+    "pip-audit>=2.6",
+    "pre-commit>=3.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "W", "UP", "B", "C4", "SIM", "T20", "PT", "PTH", "ERA", "ARG"]
+ignore = ["S101", "ARG001", "ARG002", "PTH118", "PTH123"]
+fixable = ["ALL"]
+unfixable = ["T20"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+include = "\\.pyi?$"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "venv"]
+skips = ["B101", "B104", "B108", "B601"]
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["hybrid_rag*"]
+exclude = ["data*", "tests*", "scripts*"]

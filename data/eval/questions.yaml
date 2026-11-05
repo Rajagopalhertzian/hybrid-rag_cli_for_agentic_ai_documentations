@@ -1,0 +1,274 @@
+# Evaluation Questions for hybrid-rag
+# Each question has evidence as (url, heading) pairs with character ranges
+# Tags: version-specific, cross-source, mcp, a2a, langgraph, auth, tools, state, memory, human-approval
+
+- id: "mcp-auth-001"
+  question: "How does MCP handle OAuth 2.0 client registration in the 2026-07-28 specification?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration.md"
+      heading: "Client Registration"
+      char_range: [0, 3000]
+      source: "mcp"
+  tags: ["mcp", "auth", "version-specific"]
+
+- id: "mcp-auth-002"
+  question: "What are the security considerations for MCP authorization servers?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations.md"
+      heading: "Security Considerations"
+      char_range: [0, 5000]
+      source: "mcp"
+  tags: ["mcp", "auth", "version-specific"]
+
+- id: "mcp-tools-001"
+  question: "What is the Model-Resource-Tool-Reference (MRTR) pattern in MCP?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr.md"
+      heading: "Model-Resource-Tool-Reference (MRTR)"
+      char_range: [0, 4000]
+      source: "mcp"
+  tags: ["mcp", "tools", "version-specific"]
+
+- id: "mcp-transports-001"
+  question: "What transport protocols does MCP support in the 2026-07-28 spec?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/index.md"
+      heading: "Transports"
+      char_range: [0, 3000]
+      source: "mcp"
+  tags: ["mcp", "transports", "version-specific"]
+
+- id: "mcp-server-tools-001"
+  question: "How do MCP servers define and expose tools?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/server/tools.md"
+      heading: "Tools"
+      char_range: [0, 5000]
+      source: "mcp"
+  tags: ["mcp", "tools", "server"]
+
+- id: "mcp-resources-001"
+  question: "What are MCP resources and how do they differ from tools?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/server/resources.md"
+      heading: "Resources"
+      char_range: [0, 4000]
+      source: "mcp"
+  tags: ["mcp", "resources", "server"]
+
+- id: "mcp-prompts-001"
+  question: "How do MCP prompts work and what are they used for?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/server/prompts.md"
+      heading: "Prompts"
+      char_range: [0, 3000]
+      source: "mcp"
+  tags: ["mcp", "prompts", "server"]
+
+- id: "mcp-client-roots-001"
+  question: "What is the roots capability in MCP clients?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/client/roots.md"
+      heading: "Roots"
+      char_range: [0, 3000]
+      source: "mcp"
+  tags: ["mcp", "client", "roots"]
+
+- id: "a2a-spec-001"
+  question: "What is the A2A protocol version 1.0.0 and what does it define?"
+  evidence:
+    - url: "https://a2a-protocol.org/latest/specification/"
+      heading: "A2A Specification v1.0.0"
+      char_range: [0, 5000]
+      source: "a2a"
+  tags: ["a2a", "spec", "version-specific"]
+
+- id: "a2a-task-001"
+  question: "What is the life cycle of an A2A task?"
+  evidence:
+    - url: "https://a2a-protocol.org/latest/topics/life-of-a-task/"
+      heading: "Life of a Task"
+      char_range: [0, 4000]
+      source: "a2a"
+  tags: ["a2a", "task", "lifecycle"]
+
+- id: "a2a-agent-discovery-001"
+  question: "How does agent discovery work in A2A?"
+  evidence:
+    - url: "https://a2a-protocol.org/latest/topics/agent-discovery/"
+      heading: "Agent Discovery"
+      char_range: [0, 4000]
+      source: "a2a"
+  tags: ["a2a", "discovery", "agents"]
+
+- id: "a2a-streaming-001"
+  question: "What streaming and async patterns does A2A support?"
+  evidence:
+    - url: "https://a2a-protocol.org/latest/topics/streaming-and-async/"
+      heading: "Streaming and Async"
+      char_range: [0, 4000]
+      source: "a2a"
+  tags: ["a2a", "streaming", "async"]
+
+- id: "a2a-multi-tenancy-001"
+  question: "How does A2A handle multi-tenancy?"
+  evidence:
+    - url: "https://a2a-protocol.org/latest/topics/multi-tenancy/"
+      heading: "Multi-tenancy"
+      char_range: [0, 3000]
+      source: "a2a"
+  tags: ["a2a", "multi-tenancy", "enterprise"]
+
+- id: "a2a-extensions-001"
+  question: "What extension mechanisms does A2A provide?"
+  evidence:
+    - url: "https://a2a-protocol.org/latest/topics/extensions/"
+      heading: "Extensions"
+      char_range: [0, 4000]
+      source: "a2a"
+  tags: ["a2a", "extensions", "governance"]
+
+- id: "a2a-vs-mcp-001"
+  question: "How do A2A and MCP differ in their approach to agent communication?"
+  evidence:
+    - url: "https://a2a-protocol.org/latest/topics/a2a-and-mcp/"
+      heading: "A2A and MCP"
+      char_range: [0, 5000]
+      source: "a2a"
+  tags: ["a2a", "mcp", "cross-source", "comparison"]
+
+- id: "langgraph-persistence-001"
+  question: "How does LangGraph handle persistence and checkpointers?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/persistence.md"
+      heading: "Persistence"
+      char_range: [0, 5000]
+      source: "langgraph"
+  tags: ["langgraph", "persistence", "checkpointers"]
+
+- id: "langgraph-memory-001"
+  question: "How do you add memory to a LangGraph agent?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/add-memory.md"
+      heading: "Add Memory"
+      char_range: [0, 4000]
+      source: "langgraph"
+  tags: ["langgraph", "memory", "state"]
+
+- id: "langgraph-human-loop-001"
+  question: "How does human-in-the-loop work in LangGraph?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/functional-api-human-in-the-loop.md"
+      heading: "Human in the Loop"
+      char_range: [0, 4000]
+      source: "langgraph"
+  tags: ["langgraph", "human-in-the-loop", "approval"]
+
+- id: "langgraph-streaming-001"
+  question: "What streaming capabilities does LangGraph provide?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/streaming.md"
+      heading: "Streaming"
+      char_range: [0, 4000]
+      source: "langgraph"
+  tags: ["langgraph", "streaming", "async"]
+
+- id: "langgraph-subgraphs-001"
+  question: "How do you use subgraphs in LangGraph?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/use-subgraphs.md"
+      heading: "Use Subgraphs"
+      char_range: [0, 4000]
+      source: "langgraph"
+  tags: ["langgraph", "subgraphs", "composition"]
+
+- id: "langgraph-graph-api-001"
+  question: "What is the Graph API in LangGraph and how does it differ from the Functional API?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/graph-api.md"
+      heading: "Graph API"
+      char_range: [0, 5000]
+      source: "langgraph"
+  tags: ["langgraph", "graph-api", "functional-api"]
+
+- id: "langgraph-deploy-001"
+  question: "How do you deploy a LangGraph application?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/deploy.md"
+      heading: "Deploy"
+      char_range: [0, 5000]
+      source: "langgraph"
+  tags: ["langgraph", "deployment", "production"]
+
+- id: "cross-source-auth-001"
+  question: "How do MCP, A2A, and LangGraph each handle authentication and authorization?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/index.md"
+      heading: "Authorization"
+      char_range: [0, 3000]
+      source: "mcp"
+    - url: "https://a2a-protocol.org/latest/topics/enterprise-ready/"
+      heading: "Enterprise Ready"
+      char_range: [0, 3000]
+      source: "a2a"
+    - url: "https://docs.langchain.com/oss/python/langgraph/deploy.md"
+      heading: "Authentication"
+      char_range: [0, 3000]
+      source: "langgraph"
+  tags: ["mcp", "a2a", "langgraph", "auth", "cross-source"]
+
+- id: "cross-source-tools-001"
+  question: "How do tools/function calling work across MCP, A2A, and LangGraph?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/server/tools.md"
+      heading: "Tools"
+      char_range: [0, 3000]
+      source: "mcp"
+    - url: "https://a2a-protocol.org/latest/topics/life-of-a-task/"
+      heading: "Skills and Tools"
+      char_range: [0, 3000]
+      source: "a2a"
+    - url: "https://docs.langchain.com/oss/python/langgraph/functional-api.md"
+      heading: "Tools"
+      char_range: [0, 3000]
+      source: "langgraph"
+  tags: ["mcp", "a2a", "langgraph", "tools", "cross-source"]
+
+- id: "cross-source-state-001"
+  question: "How is state managed in MCP, A2A, and LangGraph?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/docs/2026-07-28/learn/server-concepts.md"
+      heading: "State"
+      char_range: [0, 3000]
+      source: "mcp"
+    - url: "https://a2a-protocol.org/latest/topics/life-of-a-task/"
+      heading: "Task State"
+      char_range: [0, 3000]
+      source: "a2a"
+    - url: "https://docs.langchain.com/oss/python/langgraph/persistence.md"
+      heading: "State"
+      char_range: [0, 3000]
+      source: "langgraph"
+  tags: ["mcp", "a2a", "langgraph", "state", "cross-source"]
+
+- id: "version-specific-mcp-001"
+  question: "What changed in MCP authorization between 2025-11-25 and 2026-07-28?"
+  evidence:
+    - url: "https://modelcontextprotocol.io/specification/2026-07-28/changelog.md"
+      heading: "Changelog"
+      char_range: [0, 5000]
+      source: "mcp"
+  tags: ["mcp", "version-specific", "changelog"]
+
+- id: "version-specific-langgraph-001"
+  question: "What are the key differences between LangGraph's Graph API and Functional API?"
+  evidence:
+    - url: "https://docs.langchain.com/oss/python/langgraph/thinking-in-graph-api.md"
+      heading: "Thinking in Graph API"
+      char_range: [0, 4000]
+      source: "langgraph"
+    - url: "https://docs.langchain.com/oss/python/langgraph/thinking-in-functional-api.md"
+      heading: "Thinking in Functional API"
+      char_range: [0, 4000]
+      source: "langgraph"
+  tags: ["langgraph", "version-specific", "api-comparison"]
